@@ -1,0 +1,40 @@
+.downStyle {
+    margin-top: 15%;
+    width: 30%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(68, 170, 202, 0.4);
+    transition:all .6s ease;
+}
+
+.downStyle:hover {
+    width: 95%;
+    background: rgba(68, 170, 202, 1);
+    color: #FFFFFF;
+    border: 1px solid #000;
+}
+
+.small {
+    margin-top: 5%;
+}
+
+.small:hover {
+    width: 45%;
+}
+
+a {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    text-decoration: none;
+    transition:all .6s ease;
+}
+
+a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}

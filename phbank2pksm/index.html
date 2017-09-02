@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>PHBank to PKSM</title>
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body style="padding:10px;">
+        <div style="text-align:center;">
+            <label id="bankBody" for="bankLoc" class="downStyle">
+                <a id="downLink">
+                    <img src="http://www.serebii.net/battletrozei/pokemon/006.png" id="imgLabel" />
+                    <br />
+                    <span id="banklabel">
+                        Upload PHBank Bank
+                    </span>
+                </a>
+            </label>
+            <input onchange="bankConvert(event);" type="file" id="bankLoc" style="display:none;"/>
+            <br />
+            <button class="downStyle small" onclick="reset()">Reset!</button>
+            <a href="" id="reload" style="display:none;"></a>
+        </div>
+    </body>
+    <script>
+        var downLink = document.getElementById("downLink");            
+
+        var bankConvert = function(event) {
+            var input = document.getElementById("bankLoc"),
+                reader = new FileReader();
+            reader.readAsArrayBuffer(input.files[0]);
+            reader.onload = function(){
+                var arr = reader.result,
+                    oldBank = new Uint8Array(arr),
+                    newBank = new Uint8Array(0xfee20),
+                    e = 0;
+                for(var i = 0x100; i<oldBank.length; i++){
+                    newBank[e] = oldBank[i];
+                    e++;
+                }
+                for(var i = oldBank.length; i<newBank.length; i++){
+                    newBank[i] = 0x0;
+                }
+                console.log(newBank.length);
+                downData = new Blob([newBank], {type: 'application/x-binary'});
+                downLink.href = URL.createObjectURL(downData);
+                downLink.download = "bank.bin";
+                document.getElementById("imgLabel").src = "http://www.serebii.net/shuffle/pokemon/006-mx.png";
+                document.getElementById("banklabel").innerHTML = "Download PKSM Bank";
+                document.getElementById("bankLoc").type = "none";
+                return newBank;
+            };
+        }
+        
+        function reset(){
+            document.getElementById("reload").click()
+        }
+    </script>
+</html>
