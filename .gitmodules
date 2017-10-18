@@ -1,6 +1,0 @@
-[submodule "MysteryGiftDump/source/pp2d"]
-	path = MysteryGiftDump/source/pp2d
-	url = https://github.com/BernardoGiordano/pp2d
-[submodule "TeamListFiller/source/pp2d"]
-	path = TeamListFiller/source/pp2d
-	url = https://github.com/BernardoGiordano/pp2d
