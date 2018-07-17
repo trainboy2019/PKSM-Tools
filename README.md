@@ -9,3 +9,4 @@ Repo to contain all the tools related to PKSM.
 * Zaksabeast for phbank2pksm and servepkx-browser
 * Slownic for servepkx-GUI
 * Lavorther, trainboy2019 and wrathsoffire for scripts work
+* FM1337 for servepkx-go
